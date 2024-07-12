@@ -1,0 +1,25 @@
+.navbar {
+    position: -webkit-sticky; /* Para Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegúrate de que la barra de navegación esté por encima de otros elementos */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Opcional: Añadir una sombra para distinguir la barra de navegación */
+  }
+  
+  .cart-button {
+    position: relative;
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: 10px; /* Ajusta según sea necesario */
+    left: -20px; /* Ajusta según sea necesario */
+    transform: translate(50%, -50%);
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem; /* Ajusta según sea necesario */
+  }
+  

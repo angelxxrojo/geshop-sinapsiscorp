@@ -1,0 +1,71 @@
+<div *ngFor="let category of productsByCategory | keyvalue" class="py-5">
+  <div *ngIf="category.value.length > 1; else productGrid">
+    <div class="bg-zinc-100 py-2 px-5 rounded-l-sm rounded-r-lg border-l-4 border-l-blue-500 mb-5">
+      <h2 class="text-2xl font-semibold my-4 uppercase">{{ category.key }}</h2>
+    </div>
+
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let product of category.value">
+        <ng-template carouselSlide>
+          <div class="cursor-pointer" (click)="viewProductDetail(product.id)">
+            <div class="w-full max-w-sm bg-white h-full p-2">
+              <div class="border border-gray-200 shadow rounded-lg">
+                <img [src]="product.image" alt="{{ product.title }}" class="w-full h-60 object-contain object-center mb-4 p-8 rounded-t-lg">
+                <div class="px-5 pb-5 space-y-6">
+                  <h5 class="text-md font-semibold leading-tight text-gray-900 product-title">{{ product.title }}</h5>
+                  <div class="">
+                    <div class="flex items-center justify-between">
+                      <p class="text-lg font-bold leading-tight text-red-600 dark:text-red-500">
+                        <span>{{ product.price | currency }}</span>
+                      </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-2.5">
+                      <button (click)="addToCart(product, $event)" type="button" class="inline-flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300">
+                        <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4" />
+                        </svg>
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+  <ng-template #productGrid>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 px-4">
+      <div *ngFor="let product of category.value" class="cursor-pointer" (click)="viewProductDetail(product.id)">
+        <div class="w-full max-w-sm bg-white h-full p-2">
+          <div class="border border-gray-200 shadow rounded-lg">
+            <img [src]="product.image" alt="{{ product.title }}" class="w-full h-60 object-contain object-center mb-4 p-8 rounded-t-lg">
+            <div class="px-5 pb-5 space-y-6">
+              <h5 class="text-md font-semibold leading-tight text-gray-900 product-title">{{ product.title }}</h5>
+              <div class="">
+                <div class="flex items-center justify-between">
+                  <p class="text-lg font-bold leading-tight text-red-600 dark:text-red-500">
+                    <span>{{ product.price | currency }}</span>
+                  </p>
+                </div>
+                <div class="mt-6 flex items-center gap-2.5">
+                  <button (click)="addToCart(product, $event)" type="button" class="inline-flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300">
+                    <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4" />
+                    </svg>
+                    Agregar al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</div>
