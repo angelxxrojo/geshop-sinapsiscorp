@@ -27,29 +27,33 @@ Sigue estos pasos para configurar y ejecutar el proyecto localmente.
 
 ## 1. Clona el repositorio
 
+https://github.com/angelxxrojo/geshop-sinapsiscorp.git
+
 ## 2. Ingresa a la carpeta
     cd tu-repositorio
 
 ## 3. Instala las librerias
     npm install -D tailwindcss postcss autoprefixer
     npx tailwindcss init
+    npm install flowbite
     npm install ngx-owl-carousel-o
 
 ## 4. Configuraciones de Archivos ( En caso no esten configurados)
 
-    # tailwind.config.js:
-    #=====================
-    #   module.exports = {
-    #    content: [
-    #       './src/**/*.{html,ts}',
-    #   ],
-    #   theme: {
-    #       extend: {},
-    #   },
-    #   plugins: [],
-    #   };
+## tailwind.config.js
 
-    #Añade las directivas de Tailwind en src/styles.scss.
+    module.exports = {
+    content: [
+        './src/**/*.{html,ts}',
+      ],
+     theme: {
+          extend: {},
+     },
+     plugins: [],
+     };
+
+## Añade las directivas de Tailwind en src/styles.scss.
+
     @import 'tailwindcss/base';
     @import 'tailwindcss/components';
     @import 'tailwindcss/utilities';
